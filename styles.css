@@ -61,12 +61,30 @@ h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;margin-bottom:12px}
 .courses{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .courses li{border:1px solid #e4e7f0;border-radius:var(--radius);overflow:hidden;text-align:center;box-shadow:0 4px 18px rgb(8 29 92/.07);transition:transform .2s,box-shadow .2s}
 .courses li:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgb(8 29 92/.14)}
+.courses li>a{display:block;color:inherit;text-decoration:none}
+.courses li>a:focus-visible{outline-offset:-3px}
 .art{height:180px;display:grid;place-items:center;background:var(--tint)}
 /* flyer crops carry a soft gradient; the mask blends their edges into the card tint */
 .art img{width:150px;mask-image:radial-gradient(closest-side,#000 65%,transparent 100%)}
 .courses h3{font-size:1.2rem;padding:16px 12px}
 
 .dark{background:#101c3f;color:#fff}
+.course-hero{padding-block:clamp(64px,9vw,108px)}
+.course-hero .pill{margin-bottom:20px}
+.course-hero .lead{max-width:760px}
+.course-intro p,.about-course p{margin:0 0 18px}
+.about-course{background:var(--soft)}
+.about-course .wrap{max-width:900px}
+.training-modes{display:inline-flex;align-items:center;gap:8px;margin-top:8px;padding:8px 16px;border-radius:99px;background:#e3e8fd;color:var(--navy);font-weight:700}
+.requirements{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.requirements li,.module-card{background:#fff;border:1px solid #e4e7f0;border-radius:var(--radius);padding:24px;box-shadow:0 4px 18px rgb(8 29 92/.06)}
+.requirements li{font-weight:700}
+.module-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.module-card{border-top:5px solid var(--blue)}
+.module-card h3{font-size:1.25rem;color:var(--navy);margin-bottom:10px}
+.module-card p{color:var(--muted)}
+.module-card:last-child{grid-column:1/-1}
+.course-link{color:var(--blue);font-weight:700}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,7vw,88px);align-items:center}
 .split p{margin-bottom:16px;color:var(--muted)}
 .dark .split p{color:#d5dbef}
@@ -107,11 +125,14 @@ footer{background:#04091f;color:#c8cee3;padding:56px 0 24px}
   #menu.open{display:flex}
   .courses{grid-template-columns:repeat(2,1fr)}
   .profile{grid-template-columns:repeat(2,1fr)}
+  .requirements{grid-template-columns:1fr}
 }
 @media (max-width:700px){
   .split,.foot,.profile{grid-template-columns:1fr}
   .reverse>figure{order:2}
   .orb{opacity:.45}
+  .module-grid{grid-template-columns:1fr}
+  .module-card:last-child{grid-column:auto}
 }
 @media (max-width:420px){
   .courses{gap:14px}
