@@ -109,6 +109,9 @@ h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;margin-bottom:12px}
 
 .course-hero{padding-block:clamp(64px,9vw,108px)}
 .course-hero .pill{margin-bottom:20px}
+/* narrower, smaller titles keep clear of the decorative circles */
+.course-hero h1{max-width:880px;margin-inline:auto;font-size:clamp(1.9rem,4.4vw,3rem);text-wrap:balance}
+@media (max-width:1200px){.course-hero .orb{opacity:.45}}
 .course-hero .lead{max-width:760px}
 .course-intro p,.about-course p{margin:0 0 18px}
 .about-course{background:var(--soft)}
@@ -124,6 +127,7 @@ h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;margin-bottom:12px}
 .module-card{border-top:5px solid var(--blue)}
 .module-card h3{font-size:1.25rem;color:var(--navy);margin-bottom:10px}
 .module-card p{color:var(--muted)}
+.module-card p+p{margin-top:12px}
 .module-card:last-child:nth-child(odd){grid-column:1/-1}
 .course-link{color:var(--blue);font-weight:700}
 
@@ -152,7 +156,7 @@ details p{padding:0 22px 18px;color:var(--muted)}
 footer{background:#04091f;color:#c8cee3;padding:56px 0 24px}
 .foot{display:grid;grid-template-columns:1.5fr 1fr 1.4fr;gap:32px}
 .foot h2{font-size:1rem;color:#fff;text-transform:uppercase}
-.foot a{display:flex;align-items:center;gap:10px;width:fit-content;padding:8px 0;text-decoration:none}
+.foot a{display:flex;min-height:44px;align-items:center;gap:10px;width:fit-content;padding:8px 0;text-decoration:none}
 .foot a:hover{color:var(--yellow)}
 .ico{width:20px;height:20px;flex:none}
 .btn .ico+span{min-width:0;overflow-wrap:anywhere}
@@ -178,11 +182,18 @@ footer{background:#04091f;color:#c8cee3;padding:56px 0 24px}
   .orb{opacity:.45}
 }
 @media (max-width:420px){
+  .pill{font-size:.875rem}
   .brand{font-size:1.05rem;gap:6px}
   .courses{gap:14px}
   .art{height:140px}
   .art img{width:112px}
   .courses h3{font-size:1.02rem}
+}
+@media (max-width:359px){
+  .brand{font-size:.92rem}
+  .brand img{width:36px}
+  .register{margin-right:2px}
+  .nav-in{padding-inline:10px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
