@@ -55,7 +55,6 @@ h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;margin-bottom:12px}
 .section{padding:clamp(56px,8vw,96px) 0}
 .section>.wrap>h2,.sub{text-align:center}
 .sub{color:var(--muted);margin-bottom:40px}
-.soft{background:var(--soft)}
 .lilac{background:var(--lilac)}
 
 .courses{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -68,7 +67,6 @@ h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;margin-bottom:12px}
 .art img{width:150px;mask-image:radial-gradient(closest-side,#000 65%,transparent 100%)}
 .courses h3{font-size:1.2rem;padding:16px 12px}
 
-.dark{background:#101c3f;color:#fff}
 .course-hero{padding-block:clamp(64px,9vw,108px)}
 .course-hero .pill{margin-bottom:20px}
 .course-hero .lead{max-width:760px}
@@ -85,16 +83,13 @@ h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;margin-bottom:12px}
 .module-card p{color:var(--muted)}
 .module-card:last-child{grid-column:1/-1}
 .course-link{color:var(--blue);font-weight:700}
+
+.dark{background:#101c3f;color:#fff}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,7vw,88px);align-items:center}
 .split p{margin-bottom:16px;color:var(--muted)}
 .dark .split p{color:#d5dbef}
 .split .btn{margin-top:10px}
 .media img{width:100%;border-radius:var(--radius)}
-.panel{background:var(--tint);border-radius:var(--radius);min-height:340px;display:grid;place-items:center;padding:32px}
-.panel svg{width:100%;max-width:340px}
-.trophy{width:200px;mix-blend-mode:multiply;mask-image:radial-gradient(closest-side,#000 82%,transparent 100%)}
-.checks li{display:flex;align-items:center;gap:12px;margin:12px 0;font-weight:600}
-.checks svg{width:24px;height:24px;flex:none;padding:4px;border-radius:50%;background:#e3e8fd;color:var(--blue)}
 
 .mentors{width:405px;margin:0 auto 36px;mix-blend-mode:multiply;mask-image:radial-gradient(closest-side,#000 85%,transparent 100%)}
 .profile{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -129,10 +124,9 @@ footer{background:#04091f;color:#c8cee3;padding:56px 0 24px}
 }
 @media (max-width:700px){
   .split,.foot,.profile{grid-template-columns:1fr}
-  .reverse>figure{order:2}
-  .orb{opacity:.45}
   .module-grid{grid-template-columns:1fr}
   .module-card:last-child{grid-column:auto}
+  .orb{opacity:.45}
 }
 @media (max-width:420px){
   .courses{gap:14px}
