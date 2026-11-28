@@ -28,7 +28,7 @@ h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;margin-bottom:12px}
 .btn-ghost{border-color:rgb(255 255 255/.7);color:#fff}
 
 .nav{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 1px 10px rgb(8 29 92/.1)}
-.nav-in{width:calc(100% - 40px);max-width:none;display:flex;align-items:center;justify-content:space-between;min-height:68px;flex-wrap:wrap}
+.nav-in{width:100%;max-width:none;margin-inline:0;padding-inline:8px;display:flex;align-items:center;justify-content:space-between;min-height:68px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px;font:700 1.2rem var(--head);color:var(--navy);text-decoration:none}
 .brand b{color:var(--sky)}
 #menu{display:flex;align-items:center;gap:26px;font-weight:600;font-size:.95rem}
