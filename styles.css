@@ -51,6 +51,10 @@ h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;margin-bottom:12px}
 .signup .btn:disabled{opacity:.5;cursor:wait}
 .signup input.trap{position:absolute;left:-9999px;width:1px}
 .status{font-weight:700;text-align:center}
+/* after a successful registration only the acknowledgement stays */
+.signup form.done>:not(.status){display:none}
+.done .status{background:#e7f7ec;border:2px solid #15803d;border-radius:12px;color:#14532d;font-size:1.15rem;padding:24px 16px}
+.foot a{overflow-wrap:anywhere}
 .note{color:var(--muted);font-size:.875rem;text-align:center}
 
 .hero{position:relative;overflow:hidden;text-align:center;color:#fff;padding:clamp(72px,12vw,140px) 0;
