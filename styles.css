@@ -150,10 +150,12 @@ details p{padding:0 22px 18px;color:var(--muted)}
 .cta .sub{color:#fff;font-size:1.1rem;margin-bottom:30px}
 
 footer{background:#04091f;color:#c8cee3;padding:56px 0 24px}
-.foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1.4fr;gap:32px}
 .foot h2{font-size:1rem;color:#fff;text-transform:uppercase}
-.foot a{display:block;width:fit-content;padding:8px 0;text-decoration:none}
+.foot a{display:flex;align-items:center;gap:10px;width:fit-content;padding:8px 0;text-decoration:none}
 .foot a:hover{color:var(--yellow)}
+.ico{width:20px;height:20px;flex:none}
+.btn .ico+span{min-width:0;overflow-wrap:anywhere}
 .foot-brand{font:700 1.4rem var(--head);color:#fff}
 .copy{border-top:1px solid #1d2647;margin-top:36px;padding-top:20px;text-align:center;font-size:.875rem}
 
