@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registration | Gen Alpha Innovators</title>
+<meta name="description" content="Register your child with Gen Alpha Innovators. Online and offline training for Classes 1–10.">
+<link rel="icon" href="../assets/mark.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&amp;family=Mulish:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../">
+      <img src="../assets/mark.webp" alt="" width="46" height="45">
+      <span>Gen Alpha <b>Innovators</b></span>
+    </a>
+    <a class="register" href="./" aria-current="page" aria-label="Register"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21a7 7 0 0 1 14 0M19 8v6M16 11h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Register</span></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <nav id="menu" aria-label="Main">
+      <a href="../#courses">Courses</a>
+      <a href="../#faq">FAQ</a>
+      <a class="btn btn-primary" href="../#contact">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section lilac">
+    <div class="wrap signup-layout">
+      <img class="side" src="../assets/slides/ai-robotics.webp" alt="" width="1200" height="800">
+      <div class="signup">
+      <h1>Registration</h1>
+      <p class="sub">Fill in the details below to register your child.</p>
+      <form id="signup">
+      <p class="note">Fields marked * are required.</p>
+      <label for="date">Date</label>
+      <input id="date" name="date" type="date" required>
+      <label for="age">Child’s age</label>
+      <select id="age" name="age" required><option value="">Select your child’s age</option><option>5–7 years</option><option>8–10 years</option><option>11–13 years</option><option>14–16 years</option></select>
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Mobile number" pattern="[+0-9][0-9 ]{9,15}" title="Enter a mobile number of at least 10 digits" required>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="email" placeholder="Email address" required>
+      <label for="course">Course</label>
+      <select id="course" name="course" required><option value="">Select a course</option><option>Tinkercad</option><option>Simple Electronics</option><option>AI Robotics</option><option>Python Programming</option><option>MIT App Inventor</option><option>Graphical Designing</option></select>
+      <label for="mode">Mode</label>
+      <select id="mode" name="mode" required><option value="">Select a mode</option><option>Online</option><option>Offline</option></select>
+      <input class="trap" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-primary" type="submit">Register</button>
+      <p class="status" role="status"></p>
+      <p class="note">We use these details only to contact you about your registration.</p>
+      </form>
+      </div>
+      <img class="side" src="../assets/slides/graphical-designing.webp" alt="" width="1200" height="800">
+    </div>
+  </section>
+</main>
+
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <p class="foot-brand">Gen Alpha Innovators</p>
+      <p>Learn. Create. Build. Innovate.<br>For Classes 1 – 10.</p>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <a href="../#courses">Courses</a><a href="#modules">Learning Modules</a><a href="../#profile">Our Profile</a>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <a href="tel:+919100473777">+91 91004 73777</a><a href="tel:+919492492647">+91 94924 92647</a>
+      <a href="https://www.linkedin.com/in/genalpha-innovators-07a680451/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </div>
+  <p class="wrap copy">© 2026 Gen Alpha Innovators. All rights reserved.</p>
+</footer>
+
+<script>
+  const btn = document.querySelector('.menu-btn'), menu = document.getElementById('menu');
+  const set = open => {
+    menu.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  btn.addEventListener('click', () => set(!menu.classList.contains('open')));
+  menu.addEventListener('click', e => { if (e.target.closest('a')) set(false); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
+</script>
+<script>
+  // Paste the Apps Script web app URL (ends in /exec) here. See tools/registration-sheet.gs.
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwNgcCkcloxBuu4TE8X1TrWV-GSKn8jqflHCpxEBN5yYzZpANpvTJxKAQmiaT56LiBlKQ/exec';
+  const form = document.getElementById('signup'), status = form.querySelector('.status'), send = form.querySelector('[type=submit]');
+  const today = () => new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  form.date.min = form.date.value = today();
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    send.disabled = true;
+    status.textContent = 'Sending…';
+    try {
+      if (!SHEET_URL) throw new Error('not set up');
+      const res = await fetch(SHEET_URL, { method: 'POST', body: new URLSearchParams(new FormData(form)) });
+      if (!(await res.json()).ok) throw new Error('rejected');
+      form.reset();
+      form.date.value = today();
+      status.textContent = 'Thank you! We will contact you about your registration.';
+    } catch {
+      status.textContent = 'Sorry, your registration was not sent. Please call 91004 73777.';
+    }
+    send.disabled = false;
+  });
+</script>
+</body>
+</html>
