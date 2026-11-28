@@ -41,18 +41,31 @@
 </header>
 
 <main id="main">
-  <section class="hero" id="top">
-    <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
-    <div class="wrap">
-      <p class="pill">Classes 1 – 10</p>
-      <h1>Welcome to Gen Alpha Innovators</h1>
-      <p class="tagline">Learn. Create. Build. Innovate.</p>
-      <p class="lead">Future-ready technology skills through hands-on learning in STEM, Electronics, AI, Robotics, Coding and Digital Design.</p>
-      <div class="actions">
-        <a class="btn btn-yellow" href="#courses">Explore Our Courses</a>
-        <a class="btn btn-ghost" href="#contact">Talk to Us</a>
+  <section class="carousel" id="top" aria-roledescription="carousel" aria-label="Highlights">
+    <div class="track">
+      <div class="slide hero">
+        <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+        <div class="wrap">
+          <p class="pill">Classes 1 – 10</p>
+          <h1>Welcome to Gen Alpha Innovators</h1>
+          <p class="tagline">Learn. Create. Build. Innovate.</p>
+          <p class="lead">Future-ready technology skills through hands-on learning in STEM, Electronics, AI, Robotics, Coding and Digital Design.</p>
+          <div class="actions">
+            <a class="btn btn-yellow" href="#courses">Explore Our Courses</a>
+            <a class="btn btn-ghost" href="#contact">Talk to Us</a>
+          </div>
+        </div>
       </div>
+      <div class="slide"><img src="assets/slides/tinkercad-circuit-simulation.webp" alt="Tinkercad: a laptop simulating an Arduino blinking an LED" width="1200" height="800"></div>
+      <div class="slide"><img src="assets/slides/simple-electronics.webp" alt="Simple Electronics: a night-light circuit on a breadboard" width="1200" height="800"></div>
+      <div class="slide"><img src="assets/slides/ai-robotics.webp" alt="AI Robotics: a line-following robot car" width="1200" height="800"></div>
+      <div class="slide"><img src="assets/slides/python-programming.webp" alt="Python Programming: turtle code drawing a rainbow spiral" width="1200" height="800"></div>
+      <div class="slide"><img src="assets/slides/mit-app-inventor.webp" alt="MIT App Inventor: a drawing app on a phone and a laptop" width="1200" height="800"></div>
+      <div class="slide"><img src="assets/slides/graphical-designing.webp" alt="Graphical Designing: a space rocket poster on screen and on paper" width="1200" height="800"></div>
     </div>
+    <button type="button" class="arrow prev" aria-label="Previous slide">‹</button>
+    <button type="button" class="arrow next" aria-label="Next slide">›</button>
+    <div class="dots"></div>
   </section>
 
   <section class="section" id="courses">
@@ -151,6 +164,31 @@
   btn.addEventListener('click', () => set(!menu.classList.contains('open')));
   menu.addEventListener('click', e => { if (e.target.closest('a')) set(false); });
   addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
+
+  const box = document.querySelector('.carousel'), track = box.querySelector('.track'), slides = [...track.children];
+  const calm = matchMedia('(prefers-reduced-motion: reduce)');
+  const current = () => Math.round(track.scrollLeft / track.clientWidth);
+  const go = i => track.scrollTo({ left: (i + slides.length) % slides.length * track.clientWidth, behavior: calm.matches ? 'auto' : 'smooth' });
+  const dots = slides.map((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Show slide ${i + 1} of ${slides.length}`);
+    dot.addEventListener('click', () => go(i));
+    return box.querySelector('.dots').appendChild(dot);
+  });
+  const mark = () => {
+    const at = current();
+    dots.forEach((d, i) => d.setAttribute('aria-current', i === at));
+    slides.forEach((slide, i) => slide.inert = i !== at);
+  };
+  mark();
+  track.addEventListener('scroll', mark, { passive: true });
+  box.querySelector('.prev').addEventListener('click', () => go(current() - 1));
+  box.querySelector('.next').addEventListener('click', () => go(current() + 1));
+  setInterval(() => {
+    // hold while the visitor is using the banner
+    if (!calm.matches && !document.hidden && !box.matches(':hover') && !box.querySelector(':focus-visible')) go(current() + 1);
+  }, 5000);
 </script>
 </body>
 </html>
